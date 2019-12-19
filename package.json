@@ -1,0 +1,52 @@
+{
+  "name": "crwn-shop-react",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://github.com/venskou/crwn-shop-react#readme",
+  "bugs": {
+    "url": "https://github.com/venskou/crwn-shop-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/venskou/crwn-shop-react.git"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write \"src/**/*.{js,jsx,scss}\"",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "2.1.8"
+  },
+  "devDependencies": {
+    "lint-staged": "^9.5.0",
+    "node-sass": "^4.13.0",
+    "prettier": "^1.19.1",
+    "prettier-plugin-packagejson": "^2.0.6"
+  }
+}
