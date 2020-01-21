@@ -1,0 +1,22 @@
+.cart {
+  position: relative;
+
+  &__dropdown-toggle {
+    position: relative;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 28px;
+    cursor: pointer;
+  }
+
+  &__item-count {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+  }
+}
