@@ -1,40 +1,45 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { signOutStart } from '../../redux/user/user.actions';
 
-import CartIcon from '../cart-icon/cart-icon.component';
-import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import Cart from '../cart/cart.component';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
-import { HeaderContainer, LogoContainer, OptionLink, OptionsContainer } from './header.styles';
+import './header.styles.scss';
 
-const Header = ({ currentUser, hidden, signOutStart }) => (
-  <HeaderContainer>
-    <LogoContainer to="/">
-      <Logo />
-    </LogoContainer>
-    <OptionsContainer>
-      <OptionLink to="/shop">SHOP</OptionLink>
-      <OptionLink to="/contact">CONTACT</OptionLink>
-      {currentUser ? (
-        <OptionLink as="div" onClick={signOutStart} to={''}>
-          SIGN OUT
-        </OptionLink>
-      ) : (
-        <OptionLink to="/signin">SIGN IN</OptionLink>
-      )}
-      <CartIcon />
-    </OptionsContainer>
-    {hidden ? null : <CartDropdown />}
-  </HeaderContainer>
+const Header = ({ currentUser, signOutStart }) => (
+  <header className="header">
+    <Link to="/" className="header__logo-link">
+      <Logo className="header__logo" />
+    </Link>
+    <div className="header__nav-container">
+      <nav className="header__nav">
+        <Link to="/shop" className="header__nav-link">
+          Shop
+        </Link>
+        <Link to="/contact" className="header__nav-link">
+          Contact
+        </Link>
+        {currentUser ? (
+          <Link onClick={signOutStart} to={''} className="header__nav-link">
+            Sign Out
+          </Link>
+        ) : (
+          <Link to="/signin" className="header__nav-link">
+            Sign In
+          </Link>
+        )}
+      </nav>
+      <Cart />
+    </div>
+  </header>
 );
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  hidden: selectCartHidden,
 });
 
 const mapDispatchToProps = dispatch => ({
