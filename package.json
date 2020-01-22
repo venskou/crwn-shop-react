@@ -39,6 +39,7 @@
     "extends": "react-app"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "firebase": "^7.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
