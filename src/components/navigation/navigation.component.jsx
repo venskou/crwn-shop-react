@@ -52,7 +52,7 @@ const Navigation = ({
       hideNavigation();
     };
 
-    if (isMobile) {
+    if (isMobile && isNavVisible) {
       document.addEventListener('mousedown', listener);
     } else {
       document.removeEventListener('mousedown', listener);
@@ -61,7 +61,7 @@ const Navigation = ({
     return () => {
       document.removeEventListener('mousedown', listener);
     };
-  }, [navToggle, navContainer, isMobile]);
+  }, [navToggle, navContainer, isMobile, isNavVisible]);
 
   useEffect(() => {
     if (isNavVisible && isMobile) {
