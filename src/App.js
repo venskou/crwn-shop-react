@@ -8,6 +8,7 @@ import { checkUserSession } from './redux/user/user.actions';
 import Header from './components/header/header.component';
 import Spinner from './components/spinner/spinner.component';
 import ErrorBoundary from './components/error-boundary/error-boundary.component';
+import Overlay from './components/overlay/overlay.component';
 
 import './App.scss';
 
@@ -40,6 +41,7 @@ const App = ({ checkUserSession, currentUser }) => {
           </Suspense>
         </ErrorBoundary>
       </Switch>
+      <Overlay />
     </div>
   );
 };
