@@ -3,6 +3,7 @@ import { addItemToCart, removeItemFromCart } from './cart.utils';
 
 const INITIAL_STATE = {
   hidden: true,
+  isVisible: false,
   cartItems: [],
 };
 
@@ -12,6 +13,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         hidden: !state.hidden,
+      };
+    case CartActionTypes.SET_CART_VISIBILITY:
+      return {
+        ...state,
+        isVisible: action.payload,
       };
     case CartActionTypes.ADD_ITEM:
       return {
