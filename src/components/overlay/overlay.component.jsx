@@ -15,7 +15,7 @@ const Overlay = ({ isOverlayVisible }) => {
     'overlay--visible': isOverlayVisible,
   });
 
-  return <div className={overlayClass} />;
+  return <div className={overlayClass} onClick={event => event.stopPropagation()} />;
 };
 
 const mapStateToProps = () =>
