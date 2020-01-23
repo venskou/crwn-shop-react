@@ -1,49 +1,57 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectCurrentUser } from '../../redux/user/user.selectors';
-import { signOutStart } from '../../redux/user/user.actions';
+import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
-import Cart from '../cart/cart.component';
+import { selectNavigationVisibility } from '../../redux/navigation/navigation.selector';
+
+import { setNavigationVisibility } from '../../redux/navigation/navigation.actions';
+import { setOverlayVisibility } from '../../redux/overlay/overlay.actions';
+
 import { ReactComponent as Logo } from '../../assets/crown.svg';
+import Cart from '../cart/cart.component';
+import Navigation from '../navigation/navigation.component';
 
 import './header.styles.scss';
 
-const Header = ({ currentUser, signOutStart }) => (
-  <header className="header">
-    <Link to="/" className="header__logo-link">
-      <Logo className="header__logo" />
-    </Link>
-    <div className="header__nav-container">
-      <nav className="header__nav">
-        <Link to="/shop" className="header__nav-link">
-          Shop
-        </Link>
-        <Link to="/contact" className="header__nav-link">
-          Contact
-        </Link>
-        {currentUser ? (
-          <Link onClick={signOutStart} to={''} className="header__nav-link">
-            Sign Out
-          </Link>
-        ) : (
-          <Link to="/signin" className="header__nav-link">
-            Sign In
-          </Link>
-        )}
-      </nav>
-      <Cart />
-    </div>
-  </header>
-);
+const Header = ({ isNavVisible, setNavVisibility, setOverlayVisibility }) => {
+  const navToggle = useRef(null);
 
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-});
+  const toggleNavigation = () => {
+    setNavVisibility(!isNavVisible);
+    setOverlayVisibility(!isNavVisible);
+  };
+
+  const navToggleClass = classNames('header__nav-toggle', {
+    'header__nav-toggle--cross': isNavVisible,
+  });
+
+  return (
+    <header className="header">
+      <button className={navToggleClass} type="button" onClick={toggleNavigation} ref={navToggle}>
+        <span className="header__nav-toggle-box">
+          <span />
+        </span>
+        Open Navigation
+      </button>
+      <Link to="/" className="header__logo-link">
+        <Logo className="header__logo" />
+      </Link>
+      <Navigation navToggleRef={navToggle} />
+      <Cart />
+    </header>
+  );
+};
+
+const mapStateToProps = () =>
+  createStructuredSelector({
+    isNavVisible: selectNavigationVisibility,
+  });
 
 const mapDispatchToProps = dispatch => ({
-  signOutStart: () => dispatch(signOutStart()),
+  setNavVisibility: isVisible => dispatch(setNavigationVisibility(isVisible)),
+  setOverlayVisibility: isVisible => dispatch(setOverlayVisibility(isVisible)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

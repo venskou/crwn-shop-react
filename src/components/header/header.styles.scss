@@ -2,10 +2,16 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
   padding-top: 40px;
   margin-bottom: 60px;
   align-items: center;
+
+  @media screen and (max-width: 576px) {
+    padding-top: 20px;
+    margin-bottom: 40px;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 
   &__logo-link {
     width: 50px;
@@ -13,25 +19,90 @@
     margin-right: 15px;
     flex-shrink: 0;
     align-self: flex-start;
+
+    @media screen and (max-width: 576px) {
+      margin-right: 0;
+      padding: 15px;
+      width: 80px;
+      height: 69px;
+      align-self: initial;
+    }
   }
 
-  &__nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+  &__nav-toggle {
+    display: none;
+    vertical-align: top;
+    border: none;
+    background-color: transparent;
+    font-size: 0;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    z-index: 30;
+
+    @media screen and (max-width: 576px) {
+      display: inline-block;
+    }
+
+    &--cross {
+      .header__nav-toggle-box {
+        span {
+          transform: translate3d(0, 10px, 0) rotate(45deg);
+
+          &::before {
+            transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+            opacity: 0;
+          }
+
+          &::after {
+            transform: translate3d(0, -20px, 0) rotate(-90deg);
+          }
+        }
+      }
+    }
   }
 
-  &__nav-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-  }
+  &__nav-toggle-box {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
 
-  &__nav-link {
-    margin-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    span {
+      display: block;
+      top: 2px;
+      margin-top: -2px;
+
+      &,
+      &::before,
+      &::after {
+        width: 40px;
+        height: 4px;
+        background-color: #000;
+        border-radius: 0;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+      }
+
+      &::before {
+        top: 10px;
+        transition-timing-function: ease;
+        transition-duration: 0.15s;
+        transition-property: transform, opacity;
+      }
+
+      &::after {
+        top: 20px;
+        bottom: -10px;
+      }
+    }
   }
 }
