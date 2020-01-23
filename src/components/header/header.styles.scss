@@ -38,13 +38,15 @@
     padding: 15px;
     cursor: pointer;
     position: relative;
-    z-index: 30;
+    z-index: 5;
 
     @media screen and (max-width: 576px) {
       display: inline-block;
     }
 
     &--cross {
+      z-index: 30;
+
       .header__nav-toggle-box {
         span {
           transform: translate3d(0, 10px, 0) rotate(45deg);
