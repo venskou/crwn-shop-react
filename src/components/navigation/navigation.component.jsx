@@ -79,9 +79,6 @@ const Navigation = ({
         <Link to="/shop" className="navigation__link">
           Shop
         </Link>
-        <Link to="/contact" className="navigation__link">
-          Contact
-        </Link>
         {currentUser ? (
           <Link onClick={signOutStart} to="" className="navigation__link">
             Sign Out
