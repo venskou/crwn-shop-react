@@ -8,7 +8,7 @@
     display: inline-block;
     vertical-align: top;
     width: 28px;
-    height: 48px;
+    height: 54px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 0;
@@ -17,7 +17,7 @@
 
     @media screen and (max-width: 576px) {
       width: 36px;
-      height: 66px;
+      height: 71px;
       padding-top: 15px;
       padding-bottom: 13px;
     }
@@ -25,14 +25,14 @@
 
   &__item-count {
     position: absolute;
-    bottom: 12px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 12px;
 
     @media screen and (max-width: 576px) {
       font-size: 14px;
-      bottom: 18px;
+      bottom: 20px;
     }
   }
 }
