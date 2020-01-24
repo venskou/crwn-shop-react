@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import './menu-item.styles.scss';
 
-const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => {
+const MenuItem = ({ title, imageUrl, size, linkUrl, match }) => {
   const menuItemClass = classNames('menu-item', {
     [`menu-item--${size}`]: size,
   });
