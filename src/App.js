@@ -18,6 +18,7 @@ const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 const SignInAndSignUpPage = lazy(() =>
   import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
 );
+const NotFoundPage = lazy(() => import('./pages/not-found/not-found.component'));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -27,9 +28,9 @@ const App = ({ checkUserSession, currentUser }) => {
   return (
     <div className="container">
       <Header />
-      <Switch>
-        <ErrorBoundary>
-          <Suspense fallback={<Spinner />}>
+      <ErrorBoundary>
+        <Suspense fallback={<Spinner />}>
+          <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
@@ -38,9 +39,10 @@ const App = ({ checkUserSession, currentUser }) => {
               path="/signin"
               render={() => (currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />)}
             />
-          </Suspense>
-        </ErrorBoundary>
-      </Switch>
+            <Route path="*" component={NotFoundPage} />
+          </Switch>
+        </Suspense>
+      </ErrorBoundary>
       <Overlay />
     </div>
   );

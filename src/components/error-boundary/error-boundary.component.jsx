@@ -7,14 +7,14 @@ class ErrorBoundary extends React.Component {
     super();
 
     this.state = {
-      hasErrored: false
-    }
+      hasErrored: false,
+    };
   }
 
   static getDerivedStateFromError(error) {
     return {
       hasErrored: true,
-    }
+    };
   }
 
   componentDidCatch(error, info) {
@@ -25,15 +25,13 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasErrored) {
       return (
         <ErrorImageOverlay>
-          <ErrorImageContainer imageUrl="https://i.imgur.com/yW2W9SC.png"/>
-          <ErrorImageText>
-            Sorry this page is broken
-          </ErrorImageText>
+          <ErrorImageContainer imageUrl="https://i.imgur.com/yW2W9SC.png" />
+          <ErrorImageText>Sorry this page is broken</ErrorImageText>
         </ErrorImageOverlay>
-      )
+      );
     }
 
-    return this.props.children
+    return this.props.children;
   }
 }
 
