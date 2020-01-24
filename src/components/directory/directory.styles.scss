@@ -1,6 +1,9 @@
 .directory-menu {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  margin-right: -15px;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
 }
