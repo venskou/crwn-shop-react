@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import './custom-button.styles.scss';
 
-const CustomButton = ({ children, className, type }) => {
+const CustomButton = ({ children, className, type, ...props }) => {
   const blockClass = 'custom-button';
 
   const customButtonClass = classNames(className, blockClass, {
@@ -11,7 +11,11 @@ const CustomButton = ({ children, className, type }) => {
     [`${blockClass}--blue`]: type === 'blue',
   });
 
-  return <button className={customButtonClass}>{children}</button>;
+  return (
+    <button className={customButtonClass} {...props}>
+      {children}
+    </button>
+  );
 };
 
 export default CustomButton;
