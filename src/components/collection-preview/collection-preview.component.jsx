@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom';
 import CollectionItem from '../collection-item/collection-item.component';
 
-import './collection-preview.styles.scss';
+import '../../pages/collection/collection.styles.scss';
 
 const CollectionPreview = ({ title, items, routeName }) => {
   const { path } = useRouteMatch();
 
   return (
-    <section className="collection-preview">
-      <h2 className="collection-preview__title">
+    <section className="collection collection--preview">
+      <h2 className="collection__title collection__title--left collection__title--md">
         <Link to={`${path}/${routeName}`}>{title}</Link>
       </h2>
-      <div className="collection-preview__items">
+      <div className="collection__items">
         {items
           .filter((item, idx) => idx < 4)
           .map(item => (

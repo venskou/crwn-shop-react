@@ -1,19 +1,38 @@
-.collection-page {
-  display: flex;
-  flex-direction: column;
+@import 'variables';
 
-  .title {
-    font-size: 38px;
-    margin: 0 auto 30px;
+.collection {
+  margin-right: -15px;
+
+  &--preview + .collection--preview {
+    margin-top: 60px;
+
+    @media (max-width: $sm-max-width) {
+      margin-top: 40px;
+    }
+
+    @media (max-width: $xs-max-width) {
+      margin-top: 30px;
+    }
   }
 
-  .items {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+  &__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
-    & .collection-item {
-      margin-bottom: 30px;
+  &__title {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 60px;
+
+    &--md {
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    &--left {
+      text-align: left;
     }
   }
 }
