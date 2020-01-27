@@ -7,25 +7,31 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
   return (
-    <div className="checkout-item">
-      <div className="image-container">
+    <section className="checkout-item">
+      <p className="checkout-item__product">
         <img src={imageUrl} alt={name} />
+      </p>
+      <div className="checkout-item__data-container">
+        <h2 className="checkout-item__description">{name}</h2>
+        <p className="checkout-item__quantity">
+          <button
+            className="checkout-item__arrow"
+            onClick={() => removeItem(cartItem)}
+            type="button"
+          >
+            &#10094;
+          </button>
+          <span className="checkout-item__quantity-value">{quantity}</span>
+          <button className="checkout-item__arrow" onClick={() => addItem(cartItem)} type="button">
+            &#10095;
+          </button>
+        </p>
+        <p className="checkout-item__price">${price}</p>
+        <button className="checkout-item__remove" onClick={() => clearItem(cartItem)} type="button">
+          &#10005;
+        </button>
       </div>
-      <span className="name">{name}</span>
-      <span className="quantity">
-        <div className="arrow" onClick={() => removeItem(cartItem)}>
-          &#10094;
-        </div>
-        <span className="value">{quantity}</span>
-        <div className="arrow" onClick={() => addItem(cartItem)}>
-          &#10095;
-        </div>
-      </span>
-      <span className="price">{price}</span>
-      <div className="remove-button" onClick={() => clearItem(cartItem)}>
-        &#10005;
-      </div>
-    </div>
+    </section>
   );
 };
 

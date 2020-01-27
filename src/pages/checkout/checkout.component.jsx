@@ -8,38 +8,30 @@ import StripeCheckoutButton from '../../components/stripe-button.component/strip
 import './checkout.styles.scss';
 
 const Checkout = ({ cartItems, total }) => (
-  <div className="checkout-page">
-    <div className="checkout-header">
-      <div className="header-block">
-        <span>Product</span>
-      </div>
-      <div className="header-block">
-        <span>Description</span>
-      </div>
-      <div className="header-block">
-        <span>Quantity</span>
-      </div>
-      <div className="header-block">
-        <span>Price</span>
-      </div>
-      <div className="header-block">
-        <span>Remove</span>
-      </div>
-    </div>
+  <section className="checkout">
+    <header className="checkout__header">
+      <p className="checkout__header-partition checkout__header-partition--product">Product</p>
+      <p className="checkout__header-partition checkout__header-partition--description">
+        Description
+      </p>
+      <p className="checkout__header-partition checkout__header-partition--quantity">Quantity</p>
+      <p className="checkout__header-partition checkout__header-partition--price">Price</p>
+      <p className="checkout__header-partition checkout__header-partition--remove">Remove</p>
+    </header>
     {cartItems.map(cartItem => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
-    <div className="total">
-      <span>TOTAL: ${total}</span>
+    <p className="checkout__total">TOTAL: ${total}</p>
+    <div className="checkout__pay">
+      <StripeCheckoutButton price={total} />
     </div>
-    <div className="test-warning">
+    <div className="checkout__test-warning">
       <p>*Please use following test credit card for payments*</p>
-      <p>4242 4242 4242 4242</p>
+      <p>CREDIT CARD: 4242 4242 4242 4242</p>
       <p>EXP: 01/20</p>
       <p>CW: 123</p>
     </div>
-    <StripeCheckoutButton price={total} />
-  </div>
+  </section>
 );
 
 const mapStateToProps = createStructuredSelector({
