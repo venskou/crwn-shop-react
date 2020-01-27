@@ -5,9 +5,12 @@
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  border-bottom: 1px solid darkgrey;
   font-size: 25px;
   text-align: center;
+
+  & + .checkout-item {
+    border-top: 1px solid $gray;
+  }
 
   @media (max-width: $sm-max-width) {
     font-size: 20px;
