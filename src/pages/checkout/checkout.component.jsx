@@ -4,7 +4,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
 
 import CheckoutItem from '../../components/checkout-item/checout-item.component';
-import StripeCheckoutButton from '../../components/stripe-button.component/stripe-button.component';
+import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
 import './checkout.styles.scss';
 
 const Checkout = ({ cartItems, total }) => (
@@ -18,19 +18,24 @@ const Checkout = ({ cartItems, total }) => (
       <p className="checkout__header-partition checkout__header-partition--price">Price</p>
       <p className="checkout__header-partition checkout__header-partition--remove">Remove</p>
     </header>
+    {!cartItems.length && <p className="checkout__empty-message">Your cart is empty</p>}
     {cartItems.map(cartItem => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
     <p className="checkout__total">TOTAL: ${total}</p>
-    <div className="checkout__pay">
-      <StripeCheckoutButton price={total} />
-    </div>
-    <div className="checkout__test-warning">
-      <p>*Please use following test credit card for payments*</p>
-      <p>CREDIT CARD: 4242 4242 4242 4242</p>
-      <p>EXP: 01/20</p>
-      <p>CW: 123</p>
-    </div>
+    {!!cartItems.length && (
+      <>
+        <div className="checkout__pay">
+          <StripeCheckoutButton price={total} />
+        </div>
+        <div className="checkout__test-warning">
+          <p>*Please use following test credit card for payments*</p>
+          <p>CREDIT CARD: 4242 4242 4242 4242</p>
+          <p>EXP: 01/20</p>
+          <p>CW: 123</p>
+        </div>
+      </>
+    )}
   </section>
 );
 

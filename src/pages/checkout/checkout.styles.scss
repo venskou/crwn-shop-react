@@ -62,8 +62,10 @@
 
   &__total {
     margin-top: 30px;
+    padding-top: 30px;
     font-size: 36px;
     text-align: right;
+    border-top: 1px solid $gray;
   }
 
   &__pay {
@@ -76,5 +78,10 @@
     font-size: 20px;
     text-align: center;
     font-weight: 700;
+  }
+
+  &__empty-message {
+    text-align: center;
+    font-size: 40px;
   }
 }
