@@ -33,9 +33,11 @@ const SignUp = ({ signUpStart }) => {
 
   return (
     <div className="sign-up">
-      <h2 className="title">I do not have a account</h2>
-      <span>Sign up with your email and password</span>
-      <form className="sign-up-form" onSubmit={handleSubmit}>
+      <h2 className="sign-up__title">
+        Sign up
+        <br /> with your email and password
+      </h2>
+      <form onSubmit={handleSubmit}>
         <FormInput
           type="text"
           name="displayName"
@@ -68,7 +70,9 @@ const SignUp = ({ signUpStart }) => {
           label="Confirm password"
           required
         />
-        <CustomButton type="submit">SIGN UP</CustomButton>
+        <CustomButton className="sign-up__control" type="submit">
+          SIGN UP
+        </CustomButton>
       </form>
     </div>
   );

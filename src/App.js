@@ -15,9 +15,8 @@ import './App.scss';
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
-const SignInAndSignUpPage = lazy(() =>
-  import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
-);
+const SignInPage = lazy(() => import('./pages/sign-in-page/sign-in-page.component'));
+const SignUpPage = lazy(() => import('./pages/sign-up-page/sign-up-page.component'));
 const NotFoundPage = lazy(() => import('./pages/not-found/not-found.component'));
 
 const App = ({ checkUserSession, currentUser }) => {
@@ -36,8 +35,13 @@ const App = ({ checkUserSession, currentUser }) => {
             <Route exact path="/checkout" component={CheckoutPage} />
             <Route
               exact
-              path="/signin"
-              render={() => (currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />)}
+              path="/sign-in"
+              render={() => (currentUser ? <Redirect to="/" /> : <SignInPage />)}
+            />
+            <Route
+              exact
+              path="/sign-up"
+              render={() => (currentUser ? <Redirect to="/" /> : <SignUpPage />)}
             />
             <Route path="*" component={NotFoundPage} />
           </Switch>

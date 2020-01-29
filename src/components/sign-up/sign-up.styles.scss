@@ -1,9 +1,13 @@
-.sign-up {
-  display: flex;
-  flex-direction: column;
-  width: 380px;
+@import 'variables';
 
-  .title {
-    margin: 10px 0;
+.sign-up {
+  max-width: 380px;
+  margin: 0 auto;
+  text-align: center;
+
+  &__control {
+    @media (max-width: $xs-max-width) {
+      width: 100%;
+    }
   }
 }

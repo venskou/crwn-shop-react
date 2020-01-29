@@ -84,7 +84,7 @@ const Navigation = ({
             Sign Out
           </Link>
         ) : (
-          <Link to="/signin" className="navigation__link">
+          <Link to="/sign-in" className="navigation__link">
             Sign In
           </Link>
         )}
