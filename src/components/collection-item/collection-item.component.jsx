@@ -16,7 +16,8 @@ const CollectionItem = ({ item, addItem }) => {
         <CustomButton
           className="collection-item__cart-btn"
           onClick={() => addItem(item)}
-          type="inverse"
+          btnStyle="inverse"
+          type="button"
         >
           Add to cart
         </CustomButton>
