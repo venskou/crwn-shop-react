@@ -3,7 +3,7 @@
 </p>
 <p align="center">
   <a href="http://crwn-shop-venskou.herokuapp.com/" align="center">:zap: Live demo</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#development">:rocket: Get Started</a>
+  <a href="#-development">:rocket: Get Started</a>
 </p>
 
 ## ⚒ Overview
