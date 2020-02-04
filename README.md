@@ -2,7 +2,7 @@
   <img width="800px" src="http://venskou.name/repo-covers/crwn-shop-react-cover.jpg">
 </p>
 <p align="center">
-  :zap:&nbsp;<a href="http://crwn-shop-venskou.herokuapp.com/">Live&nbsp;demo</a>&nbsp;&nbsp;|&nbsp;&nbsp;:rocket:&nbsp;<a href="#-get-started">Get&nbsp;Started</a>
+  :zap:&nbsp;<a href="http://crwn-shop-venskou.herokuapp.com/">Live&nbsp;demo</a>&nbsp;&nbsp;|&nbsp;&nbsp;⚒&nbsp;<a href="#-get-started">Get&nbsp;Started</a>
 </p>
 
 ## 💭 Overview
@@ -26,7 +26,7 @@ This is a fully functional e-commerce web application including authentication a
 - [Firebase](https://firebase.google.com/) - service provider for authentication and data storage.
 - [Stripe](https://stripe.com/) - online payment service platform.
 
-## :rocket: Get Started
+## ⚒ Get Started
 
 ### Install dependencies
 
