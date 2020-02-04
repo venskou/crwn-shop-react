@@ -15,8 +15,7 @@
     "eject": "react-scripts eject",
     "lint-staged": "lint-staged",
     "prettier": "prettier --write \"src/**/*.{js,jsx,scss}\"",
-    "start": "react-scripts start",
-    "test": "react-scripts test"
+    "start": "react-scripts start"
   },
   "husky": {
     "hooks": {
