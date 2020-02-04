@@ -18,7 +18,8 @@
   }
 
   @media screen and (max-width: 576px) {
-    visibility: visible;
+    visibility: hidden;
+    opacity: 0;
     border: none;
     border-left: 1px solid #000000;
     height: auto;
@@ -35,6 +36,7 @@
     &--open {
       visibility: visible;
       right: 0;
+      opacity: 1;
     }
   }
 
